@@ -33,7 +33,7 @@ def get_weather(city):
 
 def get_motivation(city, friend_name, weather_data):
     prompt = f"""You are Optimist 3000. Generate ONE ridiculous motivational sentence for {friend_name} in {city} (temp: {weather_data['temperature']}°C, humidity: {weather_data['humidity']}%). Make it funny, absurd, weather-related, under 20 words."""
-    message = client.messages.create(model="claude-3-5-haiku-20241022", max_tokens=100, messages=[{"role": "user", "content": prompt}])
+    message = client.messages.create(model="claude-sonnet-4-6", max_tokens=100, messages=[{"role": "user", "content": prompt}])
     return message.content[0].text.strip()
 
 if st.button("🚀 Generate Motivation", use_container_width=True, type="primary"):
